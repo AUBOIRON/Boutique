@@ -60,13 +60,7 @@
 		}
 
 }
-fieldset {
- 		display:block;
- 		width:50%;
-		border: 1px dotted #353535;
-		padding:2px;
- 		overflow:hidden;                   
-}
+
 
 label {
 	background:transparent none;
@@ -95,21 +89,6 @@ input[type="submit"]
 }
 
 
-
-
-#produits{
-padding:0 150px;
-}
-
-#contenu{
-
-}
-#categories {
-	
-}
-
-
-
 #categories a {
 	font-size: 12pt;
 	margin:50px;
@@ -120,19 +99,25 @@ padding:0 150px;
 	
 		
 }
-
-
-#produits li, #produits li a {
-		list-style-type: none;
-		list-style-image:none;
-		display:inline; 
-    width:175px;
-    text-align:center;
-    height:205px;
-    font: 1em "Trebuchet MS",Arial,sans-serif ;
+p {
+	font-size:25pt;
+}
+form {
+	margin:auto;
+	display:block;
+	width:50%;
+	padding:2px;
+	overflow:hidden;  
+}
+form p {
+	font-size:18pt;
+	font-family: Vladimir Script;
+	text-align: center;
+	
 }
 
-#produits ul{
+td {
+	padding:15px;
 }
 
 
