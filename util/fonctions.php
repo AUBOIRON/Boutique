@@ -24,32 +24,32 @@ function getLesCategories()
 	return $lesCategories;
 }
 
- function getLesProduits($uneCategorie)
+ function getLesMedicaments($uneCategorie)
 {
-        $lesProduits = array();
+        $lesMedicaments = array();
 	$connexion = connexion();
-	$requete ="select * from produit where idCategorie = '$uneCategorie'";
+	$requete ="select * from medicament where idCategorie = '$uneCategorie'";
 	$resultat = $connexion->query($requete);
         $lesLignes = $resultat->fetchAll();
    	foreach ($lesLignes as $ligne) 	
    	{
-                $produit = new Produit($ligne["idProduit"],$ligne["description"],$ligne["image"], $ligne["prix"]);	
-		$lesProduits[$ligne["idProduit"]] = $produit;		
+                $medicament = new Medicament($ligne["idMedicament"],$ligne["description"],$ligne["image"], $ligne["prix"]);	
+		$lesMedicaments[$ligne["idMedicament"]] = $medicament;		
  	}
-	return $lesProduits;
+	return $lesMedicaments;
 }
-function getProduit($unId)
+function getMedicament($unId)
 {
-        $produit = null;
+        $medicament = null;
 	$connexion = connexion();
-	$requete = "select * from produit where idProduit = '$unId'";
+	$requete = "select * from medicament where idMedicament = '$unId'";
    	$resultat = $connexion->query($requete);
         $ligne = $resultat->fetch();
    	if ($ligne != FALSE)
    	{
-    	$produit = new Produit($ligne["idProduit"],$ligne["description"],$ligne["image"], $ligne["prix"]);	
+    	$medicament = new Medicament($ligne["idMedicament"],$ligne["description"],$ligne["image"], $ligne["prix"]);	
 	}
-	return $produit;
+	return $medicament;
 }
 function initPanier()
 {
@@ -57,25 +57,25 @@ function initPanier()
 		$_SESSION['panier']= new Panier();
         }
 }
-function ajouterAuPanier($idProduit, $qte)
+function ajouterAuPanier($idMedicament, $qte)
 {	
-	$_SESSION['panier']->ajoutItem($idProduit,$qte);	
+	$_SESSION['panier']->ajoutItem($idMedicament,$qte);	
 }
-function retirerDuPanier($idProduit)
+function retirerDuPanier($idMedicament)
 {
-	$_SESSION['panier']->suppressionItem($idProduit,1);
+	$_SESSION['panier']->suppressionItem($idMedicament,1);
 }
-function getLesProduitsDuPanier()
-{	$lesProduits = array();
+function getLesMedicamentsDuPanier()
+{	$lesMedicaments = array();
 	if (isset($_SESSION["panier"])){		
 		$panier = $_SESSION["panier"]->recupPanier();		
 		foreach($panier as $id => $qte)
 		{
-				$produit = getProduit($id);
-				$lesProduits[]=$produit;
+				$medicament = getMedicament($id);
+				$lesMedicaments[]=$medicament;
 		}		
 	}
-	return $lesProduits;
+	return $lesMedicaments;
 }
 function getLesQuantitesDuPanier()
 {	
@@ -89,7 +89,7 @@ function getLesQuantitesDuPanier()
 	}
 	return $lesQuantites;		
 }
-function creerCommande($nom,$rue,$cp,$ville,$mail )
+function creerCommande($idPharmacien)
 {
 	$connexion = connexion();
 	$requete = "select max(idCommande) as maxi from commande";
@@ -98,7 +98,7 @@ function creerCommande($nom,$rue,$cp,$ville,$mail )
    	$idCommande = $ligne['maxi'];
    	$idCommande++;
 	$date=date("Y-m-j");
-   	$requete = "insert into commande values ('$idCommande','$date','$nom','$rue','$cp','$ville','$mail')";
+   	$requete = "insert into commande values ('$idCommande','$date','$idPharmacien')";
    	$resultat = $connexion->query($requete);
    	$panier = $_SESSION['panier']->recupPanier();
 	foreach($panier as $id=>$qte)
@@ -108,32 +108,32 @@ function creerCommande($nom,$rue,$cp,$ville,$mail )
 	}	
 	session_destroy();
 }
-function estUnCp($codePostal)
-{
-   // Le code postal doit comporter 5 chiffres
-   return strlen($codePostal)== 5 && estEntier($codePostal);
-}
+// function estUnCp($codePostal)
+// {
+//    // Le code postal doit comporter 5 chiffres
+//    return strlen($codePostal)== 5 && estEntier($codePostal);
+// }
 
-// Si la valeur transmise ne contient pas d'autres caract�res que des chiffres,
-// la fonction retourne vrai
-function estEntier($valeur)
-{
-   return !preg_match ("/^[^0-9]./", $valeur);
-}
-function estUnMail($mail)
-{
-$regexp="/^[a-z0-9]+([_\\.-][a-z0-9]+)*@([a-z0-9]+([\.-][a-z0-9]+)*)+\\.[a-z]{2,}$/i";
-return preg_match ($regexp, $mail);
-}
-function getErreursSaisieCommande($cp,$mail)
-{
- $lesErreurs = array();
- if(!estUnCp($cp))
- 	$lesErreurs[]= "erreur de code postal";
- if(!estUnMail($mail))
- 	$lesErreurs[]= "erreur de mail";
- return $lesErreurs;
-}
+// // Si la valeur transmise ne contient pas d'autres caract�res que des chiffres,
+// // la fonction retourne vrai
+// function estEntier($valeur)
+// {
+//    return !preg_match ("/^[^0-9]./", $valeur);
+// }
+// function estUnMail($mail)
+// {
+// $regexp="/^[a-z0-9]+([_\\.-][a-z0-9]+)*@([a-z0-9]+([\.-][a-z0-9]+)*)+\\.[a-z]{2,}$/i";
+// return preg_match ($regexp, $mail);
+// }
+// function getErreursSaisieCommande($cp,$mail)
+// {
+//  $lesErreurs = array();
+//  if(!estUnCp($cp))
+//  	$lesErreurs[]= "erreur de code postal";
+//  if(!estUnMail($mail))
+//  	$lesErreurs[]= "erreur de mail";
+//  return $lesErreurs;
+// }
 
 function enregAdmin()
 {

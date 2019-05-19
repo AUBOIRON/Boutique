@@ -19,7 +19,7 @@
 							<a class="nav-link js-scroll-trigger" href="index.php?uc=accueil">Accueil</b></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="index.php?uc=voirProduits&action=voirCategories"><b>Voir le catalogue</b></a>
+							<a class="nav-link js-scroll-trigger" href="index.php?uc=voirMedicaments&action=voirCategories"><b>Voir le catalogue</b></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link js-scroll-trigger" href="index.php?uc=gererPanier&action=voirPanier"><b>Voir son panier</b></a>

@@ -7,7 +7,7 @@
 				{
 					$idCategorie = $uneCategorie->getId();
 					$libCategorie = $uneCategorie->getLibelle();
-					$url ="<a href=index.php?uc=voirProduits&idCategorie=$idCategorie&action=voirProduits> $libCategorie </a>";
+					$url ="<a href=index.php?uc=voirMedicaments&idCategorie=$idCategorie&action=voirMedicaments> $libCategorie </a>";
 					echo "<a>".$url."</a>\n";
 				}
 				?>

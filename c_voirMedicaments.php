@@ -7,22 +7,22 @@ switch($action)
   		$lesCategories = getLesCategories();
 		include("vues/v_categories.php");
   		break;
-	case 'voirProduits' :
+	case 'voirMedicaments' :
 		$lesCategories = getLesCategories();
 		include("vues/v_categories.php");
   		$idCategorie = $_REQUEST['idCategorie'];
-		$lesProduits = getLesProduits($idCategorie);
-		include("vues/v_produits.php");
+		$lesMedicaments = getLesMedicaments($idCategorie);
+		include("vues/v_medicaments.php");
 		break;
-	case 'voirProduitsEtAjouterAuPanier' :
+	case 'voirMedicamentsEtAjouterAuPanier' :
 		$lesCategories = getLesCategories();
 		include("vues/v_categories.php");
   		$idCategorie = $_REQUEST['idCategorie'];
-		$lesProduits = getLesProduits($idCategorie);
-		include("vues/v_produits.php");
-		$idProduit=$_REQUEST['idProduit'];
+		$lesMedicaments = getLesMedicaments($idCategorie);
+		include("vues/v_medicaments.php");
+		$idMedicament=$_REQUEST['idMedicament'];
 		$quantite=$_REQUEST['quantite'];
-	  	ajouterAuPanier($idProduit,$quantite);
+	  	ajouterAuPanier($idMedicament,$quantite);
 		break;
 }
 ?>

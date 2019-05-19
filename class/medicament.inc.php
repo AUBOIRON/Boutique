@@ -1,5 +1,5 @@
 <?PHP
-class Produit {
+class Medicament {
 	private $id;
 	private $description;
 	private $image;

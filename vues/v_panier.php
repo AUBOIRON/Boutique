@@ -1,13 +1,13 @@
 <img src="images/panier.gif"	alt="Panier" title="panier"/>
 <img src="images/panier.jpg"	alt="Panier" title="panier"/>
 <?php
-foreach( $lesProduits as $unProduit) 
+foreach( $lesMedicaments as $unMedicament) 
 {
-	$id = $unProduit->getId();
-	$description = $unProduit->getDescription();
-	$image = $unProduit->getImage();	
+	$id = $unMedicament->getId();
+	$description = $unMedicament->getDescription();
+	$image = $unMedicament->getImage();	
 	$quantite = $lesQuantites[$id];
-	$url ="<a href=index.php?uc=gererPanier&produit=$id&action=supprimerUnProduit>supprimer </a>";
+	$url ="<a href=index.php?uc=gererPanier&medicament=$id&action=supprimerUnMedicament>supprimer </a>";
 	
 	echo "
 			<p><img src=".$image." alt=image width=100	height=100 />
