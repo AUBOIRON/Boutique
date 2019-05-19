@@ -95,15 +95,6 @@ input[type="submit"]
 }
 
 
-
-
-#produits{
-padding:0 150px;
-}
-
-
-
-
 #categories a {
 	font-size: 12pt;
 	margin:50px;
@@ -116,15 +107,9 @@ padding:0 150px;
 }
 
 
-#produits li, #produits li a {
-		list-style-type: none;
-		list-style-image:none;
-		display:inline; 
-    width:175px;
-    text-align:center;
-    height:205px;
-    font: 1em "Trebuchet MS",Arial,sans-serif ;
-}
 
+td {
+	padding:15px;
+}
 
 
