@@ -60,13 +60,7 @@
 		}
 
 }
-fieldset {
- 		display:block;
- 		width:50%;
-		border: 1px dotted #353535;
-		padding:2px;
- 		overflow:hidden;                   
-}
+
 
 label {
 	background:transparent none;
@@ -108,7 +102,19 @@ input[type="submit"]
 p {
 	font-size:25pt;
 }
-
+form {
+	margin:auto;
+	display:block;
+	width:50%;
+	padding:2px;
+	overflow:hidden;  
+}
+form p {
+	font-size:18pt;
+	font-family: Vladimir Script;
+	text-align: center;
+	
+}
 
 td {
 	padding:15px;
