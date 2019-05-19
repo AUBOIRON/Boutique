@@ -1,0 +1,138 @@
+
+#mainNav {
+	background-color: #1F497D;
+}
+
+#mainNav .navbar-toggler {
+	font-size: 18pt;
+	right: 0;
+	padding: 13px;
+	text-transform: uppercase;
+	color: black;
+	border: 0;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#mainNav .navbar-brand {
+	color: #fed136;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#mainNav .nav-link:hover {
+ 
+ color : #fed136;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+	font-size: 10pt;
+	font-weight: 400;
+	padding: 0.75em 0;
+	letter-spacing: 1px;
+	color: black;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+
+@media (min-width: 1050px) {
+	#mainNav {
+			
+			-webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+			transition: padding-top 0.3s, padding-bottom 0.3s;
+			border: none;
+			background-color: transparent;
+		}
+		#mainNav .navbar-brand {
+			font-size: 1.75em;
+			-webkit-transition: all 0.3s;
+			transition: all 0.3s;
+		}
+		#mainNav .navbar-nav .nav-item .nav-link {
+			padding: 1.1em 1em !important;
+		}
+		#mainNav.navbar-shrink {
+			padding-top: 0;
+			padding-bottom: 0;
+			background-color: #1F497D;
+		}
+		#mainNav.navbar-shrink .navbar-brand {
+			font-size: 1.25em;
+			padding: 12px 0;
+		}
+
+}
+fieldset {
+ 		display:block;
+ 		width:50%;
+		border: 1px dotted #353535;
+		padding:2px;
+ 		overflow:hidden;                   
+}
+
+label {
+	background:transparent none;
+	display: block;
+	width: 20%;
+	float: left;
+	padding-right: 1%;
+	text-align: left;
+}
+
+input {
+	margin-left: 1%;
+	width: 30%;
+	border: #CCC 1px solid;
+}
+
+input:hover, #ent input:focus {
+	border: #999 1px solid;
+	background-color: #DDEEFF;
+}
+
+input[type="submit"]
+{
+	border: #DDEEFF 1px solid;
+	width: 30%;
+}
+
+
+
+
+#produits{
+padding:0 150px;
+}
+
+#contenu{
+
+}
+#categories {
+	
+}
+
+
+
+#categories a {
+	font-size: 12pt;
+	margin:75px;
+	text-transform: uppercase;
+	color: black;
+	border: 0;
+	font-family:Arial, Helvetica, sans-serif;
+	
+		
+}
+
+
+#produits li, #produits li a {
+		list-style-type: none;
+		list-style-image:none;
+		display:inline; 
+    width:175px;
+    text-align:center;
+    height:205px;
+    font: 1em "Trebuchet MS",Arial,sans-serif ;
+}
+
+#produits ul{
+}
+
+
